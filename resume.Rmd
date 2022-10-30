@@ -7,4 +7,68 @@ output:
     theme: cerulean
 ---
 
-Below is my resume!
+## Education
+
+***Columbia University, Mailman School of Public Health, NY***
+_Master of Public Health in Epidemiology, Certificate in Applied Biostatistics & Public Health Data Science_
+
+***University of Western Ontario, London, ON, Canada***
+_Bachelor of Medical Sciences, Honors Specialization in Biochemistry and Cell Biology_ 
+
+## Relevant Experience
+***Public Health Agency of Canada***
+_Emerging Public Health Measures Evidence Team Intern_
+* Review and appraise 10+ scientific articles (literature review, meta-analysis, primary research, etc.) per week for potential use as references in future guidance on non-pharmaceutical public health interventions concerning the COVID-19 pandemic, monkeypox, and other respiratory infectious diseases
+
+* Conducted weekly presentation on a research article to provide situational awareness to colleagues about current public health interventions and incite discussion on the impact of article conclusion on current guidance
+
+* Contribute to the writing of an evidence brief to advise on quarantine length of the Omicron variant through benchmarking research, and appraisal of qualitative and quantitative articles on individual impacts of quarantine, adherence to quarantine and using testing to shorten quarantine
+
+&nbsp;
+
+***Mailman School of Public Health***
+_Lead Teaching Assistant for Quantitative Foundations_
+* Developed stakeholder management by acting as the liaison between faculties, the Teaching Assistant team (26 TA’s), and students by relaying information, plan meetings, and problem-solving
+
+* Developed effective communication with different stakeholders by altering language according to their priorities through emails, meetings, and presentations
+
+&nbsp;
+
+***Citizen Public Health Literacy (CIPHER)***
+_Organizational Manager_
+* Oversee Committee Leads projects and support their impact on the neighboring community through building education curriculum, encouraging volunteerism, and engaging with non-for-profits in their long-term projects
+
+* Gained support from faculties to implement Public Health Literacy Curriculum in the Bard Prison Initiative
+
+&nbsp;
+
+***CMMB (Catholic Medical Mission Board)***
+_Data Intern_
+* Performed data management to update 140 volunteer profiles using 8 years of accumulated data; to renew 35 organization partner applications using past years responses to increase efficiency of operation
+
+* Communicated findings in a concise and effective manner to inform decision making on volunteer orientation and social media content engagement by using quantitative and qualitative responses
+
+## Research Projects
+***Published work as co-author***
+
+Renee D Goodwin, Meng Xi Sun, Keely Cheslack-Postava. 2022. Everything old is new again: Creating and maintaining a population-level ‘shared reality’ of health risks associated with cigarette use toward both reducing the prevalence and eliminating disparities in cigarette use among all Americans, _Nicotine & Tobacco Research_. https://doi.org/10.1093/ntr/ntac177
+* Found that US adults who daily use cannabis have lower risk perception of cigarette
+
+&nbsp;
+
+***Master Thesis*** 
+_Role of risk perception on cannabis use among US adults suffering from severe psychological distress_ 
+* SAS analysis: found that US adults suffering from SPD have higher cannabis use and reduced cannabis risk perception 
+
+&nbsp;
+
+***Undergraduate Thesis (April 2021)*** 
+_Bioinformatic Mapping of Known Disease Causing Connexin Mutations_
+* Literature review using PubMed, Google Scholar, and Web of Science (over 300 articles) to identify 12 disease-causing human connexins, encompassing 938 gene mutations, leading to 30 clinically distinct inheritable diseases
+
+## Skills
+* Statistical languages: SAS (2023), R (2023), SQL (2023), STATA (intermediate)
+
+* Microsoft Office: Excel, PowerPoint, Word, Outlook
+
+* Multilingual: English (native), French (native), Chinese (Mandarin) (professional)

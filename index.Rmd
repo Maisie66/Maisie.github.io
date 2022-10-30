@@ -15,10 +15,19 @@ Hi! My name is Maisie Sun and I'm a student at Columbia University, Mailman Scho
 <br><br><img src="image/Winter Portrait.jpg" alt="logo" style="width:85%; border:10px solid"><br>
 </center>
 
-Learn more about me with the following menu!
+&nbsp;
+
+Learn more about me with the following link and the menu on the top right corner!
 
 Link to About page: [About](about.html)
 
 Link to Resume page: [Resume](resume.html)
 
-Link to Hobbies page: 
+Find my GitHub [here](http://github.com/Maisie66/)
+
+Use the menu on the top right corner to contact me (Email, LinkedIn)
+
+# Homework Problem 2
+
+To see plots on a flexdashboard with Instacart data, click [here](dashboard.html)
+
