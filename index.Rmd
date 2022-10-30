@@ -1,5 +1,5 @@
 ---
-title: "My awesome website"
+title: "Maisie"
 output: 
   html_document:
     toc: true
@@ -7,6 +7,18 @@ output:
     theme: cerulean
 ---
 
-# This is Jeff's awesome website
+# Introduction
 
-![](https://media.giphy.com/media/drXGoW1iudhKw/giphy.gif)
+Hi! My name is Maisie Sun and I'm a student at Columbia University, Mailman School of Public Health!
+
+<center>
+<br><br><img src="image/Winter Portrait.jpg" alt="logo" style="width:85%; border:10px solid"><br>
+</center>
+
+Learn more about me with the following menu!
+
+Link to About page: [About](about.html)
+
+Link to Resume page: [Resume](resume.html)
+
+Link to Hobbies page: 
