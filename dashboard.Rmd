@@ -11,55 +11,52 @@ library(flexdashboard)
 library(tidyverse)
 library(p8105.datasets)
 library(plotly)
+library(rnoaa)
 ```
 
 Column {data-width=650}
 -----------------------------------------------------------------------
 
 ```{r}
-data(instacart)
-
-instacart = 
-  sample_n(instacart, 100)
-  mutate(rating = review_scores_location / 2) %>%
-  select(
-    neighbourhood_group, neighbourhood, rating, price, room_type, lat, long) %>%
-  filter(
-    !is.na(rating), 
-    neighbourhood_group == "Manhattan",
-    room_type == "Entire home/apt",
-    price %in% 100:500) %>%
-  drop_na(rating)
+data(ny_noaa)
+  
+  clean_data = 
+  sample_n(ny_noaa, 500) %>%
+  janitor::clean_names() %>%
+  separate(date, into = c("year", "month", "day"), sep = "-") %>%
+  mutate(
+    prcp = prcp/10,
+    tmax = as.numeric(tmax)/10,
+    tmin = as.numeric(tmin)/10,
+    month = recode(month, "01" = "January", "02" = "February", "03" = "March", "04" = "April", "05" = "May", "06" = "June", "07" = "July", "08" = "August", "09" = "September", "10" = "October", "11" = "November", "12" = "December"))
 ```
 
 
 ### Chart A
 
-```{r}
-nyc_airbnb %>%
-  mutate(
-    text_label = str_c("Price: ", price, "\nRating: ", rating)
-  ) %>%
-  plot_ly(
-    x = ~lat, y = ~long, color = ~price,
-    type = "scatter", mode = "markers",
-    alpha = .5, text = ~text_label
-  )
+```{r bar_graph, include=FALSE}
+clean_data %>% 
+  count(neighbourhood) %>% 
+  mutate(neighbourhood = fct_reorder(neighbourhood, n)) %>% 
+  plot_ly(x = ~neighbourhood, y = ~n, color = ~neighbourhood, type = "bar", colors = "viridis")
 ```
 
 Column {data-width=350}
 -----------------------------------------------------------------------
 
-### Chart B
+### Boxplot: max temperature distribution across months
 
-```{r}
-
+```{r boxplot, include=FALSE}
+clean_data %>% 
+  mutate(month = fct_reorder(month, tmax)) %>% 
+  plot_ly(y = ~tmax, color = ~month, type = "box", colors = "viridis")
 ```
 
-### Chart C
+### Scatterplot: 
 
-```{r}
-
+```{r line graph, include=FALSE}
+clean_data %>% 
+  plot_ly(y = ~snow, x = ~month, type = 'scatter', colors = "viridis")
 ```
 
 run this in the console to knit into dashboard or use build to knit everything: `rmarkdown::render("dashboard.Rmd", output_format = "flexdashboard::flex_dashboard")`
