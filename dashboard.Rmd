@@ -14,9 +14,6 @@ library(plotly)
 library(rnoaa)
 ```
 
-Column {data-width=650}
------------------------------------------------------------------------
-
 ```{r}
 data(ny_noaa)
   
@@ -25,38 +22,46 @@ data(ny_noaa)
   janitor::clean_names() %>%
   separate(date, into = c("year", "month", "day"), sep = "-") %>%
   mutate(
-    prcp = prcp/10,
     tmax = as.numeric(tmax)/10,
     tmin = as.numeric(tmin)/10,
-    month = recode(month, "01" = "January", "02" = "February", "03" = "March", "04" = "April", "05" = "May", "06" = "June", "07" = "July", "08" = "August", "09" = "September", "10" = "October", "11" = "November", "12" = "December"))
+    snow = round(snow*0.03937*4)/4,
+    month = recode(month, "01" = "January", "02" = "February", "03" = "March", "04" = "April", "05" = "May", "06" = "June", "07" = "July", "08" = "August", "09" = "September", "10" = "October", "11" = "November", "12" = "December")) %>%
+    group_by(id, year, month) %>%
+    mutate(
+      mean_tmax = mean(tmax, na.rm = TRUE),
+      mean_tmin = mean(tmin, na.rm = TRUE),
+      mean_temp = (tmax + tmin)/2) %>%
+    drop_na(mean_tmax, mean_tmin, mean_temp)
+  
 ```
 
-
-### Chart A
-
-```{r bar_graph, include=FALSE}
-clean_data %>% 
-  count(neighbourhood) %>% 
-  mutate(neighbourhood = fct_reorder(neighbourhood, n)) %>% 
-  plot_ly(x = ~neighbourhood, y = ~n, color = ~neighbourhood, type = "bar", colors = "viridis")
-```
-
-Column {data-width=350}
+Column {data-width=650}
 -----------------------------------------------------------------------
 
 ### Boxplot: max temperature distribution across months
 
-```{r boxplot, include=FALSE}
+```{r box_plot}
 clean_data %>% 
   mutate(month = fct_reorder(month, tmax)) %>% 
   plot_ly(y = ~tmax, color = ~month, type = "box", colors = "viridis")
 ```
 
-### Scatterplot: 
+Column {data-width=350}
+-----------------------------------------------------------------------
 
-```{r line graph, include=FALSE}
+### Bar graph: mean max temperature in July across the years
+
+```{r bar_graph}
 clean_data %>% 
-  plot_ly(y = ~snow, x = ~month, type = 'scatter', colors = "viridis")
+  filter(month == "July") %>%
+  plot_ly(x = ~year, y = ~mean_tmax, type = "bar", colors = "viridis")
 ```
 
-run this in the console to knit into dashboard or use build to knit everything: `rmarkdown::render("dashboard.Rmd", output_format = "flexdashboard::flex_dashboard")`
+### Scatterplot: min temp and snow depth
+
+```{r line graph}
+clean_data %>% 
+  plot_ly(y = ~prcp, x = ~ mean_temp, type = 'scatter', colors = "viridis")
+```
+
+ `rmarkdown::render("dashboard.Rmd", output_format = "flexdashboard::flex_dashboard")`
