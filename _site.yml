@@ -17,4 +17,4 @@ navbar:
       href: http://www.linkedin.com/in/maisie-mengxi-sun
 output:
   html_document:
-    theme: cosmo
+    theme: cerulean
