@@ -46,13 +46,15 @@ clean_data %>%
 Column {data-width=350}
 -----------------------------------------------------------------------
 
-### Bar graph: number of precipiation observations across months ordered chronologically
+### Bar graph: mean precipiation observations across months ordered chronologically
 
 ```{r bar_graph}
 clean_data %>% 
-  count(prcp) %>%
+  group_by(month) %>%
+  summarize(mean_prcp = mean(prcp, na.rm = TRUE)) %>%
+  drop_na(mean_prcp) %>%
   mutate(month = factor(month, levels = month.name)) %>% 
-  plot_ly(x = ~month, y = ~prcp, color = ~ month, type = "bar", colors = "viridis")
+  plot_ly(x = ~month, y = ~mean_prcp, color = ~month, type = "bar", colors = "viridis")
 ```
 
 ### Scatterplot: precipiration level varying by mean temperature
