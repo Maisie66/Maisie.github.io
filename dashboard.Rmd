@@ -37,11 +37,12 @@ data(ny_noaa)
 Column {data-width=650}
 -----------------------------------------------------------------------
 
-### Boxplot: max temperature distribution across months
+### Boxplot: max temperature distribution across months ordered chronologically
 
 ```{r box_plot}
 clean_data %>% 
-  mutate(month = fct_reorder(month, tmax)) %>% 
+  
+  mutate(month = factor(month, levels = month.name)) %>% 
   plot_ly(y = ~tmax, color = ~month, type = "box", colors = "viridis")
 ```
 
