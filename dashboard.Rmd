@@ -39,7 +39,6 @@ Column {data-width=650}
 
 ```{r box_plot}
 clean_data %>% 
-  
   mutate(month = factor(month, levels = month.name)) %>% 
   plot_ly(y = ~tmax, color = ~month, type = "box", colors = "viridis")
 ```
@@ -47,12 +46,13 @@ clean_data %>%
 Column {data-width=350}
 -----------------------------------------------------------------------
 
-### Bar graph: max temperature in July across the years
+### Bar graph: number of precipiation observations across months ordered chronologically
 
 ```{r bar_graph}
 clean_data %>% 
-  filter(month == "July") %>%
-  plot_ly(x = ~year, y = ~tmax, type = "bar", colors = "viridis")
+  count(prcp) %>%
+  mutate(month = factor(month, levels = month.name)) %>% 
+  plot_ly(x = ~month, y = ~prcp, color = ~ month, type = "bar", colors = "viridis")
 ```
 
 ### Scatterplot: precipiration level varying by mean temperature
