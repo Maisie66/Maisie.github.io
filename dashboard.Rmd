@@ -28,10 +28,8 @@ data(ny_noaa)
     month = recode(month, "01" = "January", "02" = "February", "03" = "March", "04" = "April", "05" = "May", "06" = "June", "07" = "July", "08" = "August", "09" = "September", "10" = "October", "11" = "November", "12" = "December")) %>%
     group_by(id, year, month) %>%
     mutate(
-      mean_tmax = mean(tmax, na.rm = TRUE),
-      mean_tmin = mean(tmin, na.rm = TRUE),
       mean_temp = (tmax + tmin)/2) %>%
-    drop_na(mean_tmax, mean_tmin, mean_temp)
+    drop_na(mean_temp)
 ```
 
 Column {data-width=650}
@@ -49,12 +47,12 @@ clean_data %>%
 Column {data-width=350}
 -----------------------------------------------------------------------
 
-### Bar graph: mean max temperature in July across the years
+### Bar graph: max temperature in July across the years
 
 ```{r bar_graph}
 clean_data %>% 
   filter(month == "July") %>%
-  plot_ly(x = ~year, y = ~mean_tmax, type = "bar", colors = "viridis")
+  plot_ly(x = ~year, y = ~tmax, type = "bar", colors = "viridis")
 ```
 
 ### Scatterplot: precipiration level varying by mean temperature
